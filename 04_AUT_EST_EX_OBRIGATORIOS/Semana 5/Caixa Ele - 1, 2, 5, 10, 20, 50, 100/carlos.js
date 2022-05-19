@@ -3,7 +3,7 @@
 function mostrarPainel(){
 		
 	  document.getElementById("resultadoFinal").innerHTML = ``;
-      var valor = prompt("Digite o valor a sacar desejado", "0");
+      var valor = prompt("Digite o valor do produto", "0");
 	  if (valor >= 0){
 		  calcularNota100(valor);
 	  }
