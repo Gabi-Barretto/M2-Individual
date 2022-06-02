@@ -4,7 +4,7 @@ function generateInputs () {
     var texto = "";
 
     for ( i = 0 ; i<vlr ; i++ ){
-        texto += '<input type="number" placeholder= "trabalho" class="trabalho"></input>' + '<input type="number" placeholder= "prova" class="prova"></input><br>';
+        texto += '<p>Aluno ' + i + ' :</p><input type="number" placeholder= "trabalho" class="trabalho"></input>' + '<input type="number" placeholder= "prova" class="prova"></input><br>';
     }
 
     $("#inputs").append(texto);
@@ -57,7 +57,7 @@ function calc() {
 
         mediaGeral = parseFloat(mediaGeral/vlr);
 
-    for (let h = 0; h < vlr ; h++) {$("#total").append("Médias individuais: ",medias[h], "<br>");}
+    for (let h = 0; h < vlr ; h++) {$("#total").append("Média Aluno "+ h +": ",medias[h], "<br>");}
 
     $("#total").append("Média geral: ",mediaGeral, "<br> Média dos trabalhos: ",mediaTrabalhos, "<br>Média dos provas: ",mediaProvas, "<br>Menor trabalho: ",menorTr,"<br>Menor prova: ",menorPr);
 
