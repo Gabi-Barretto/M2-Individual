@@ -1,6 +1,8 @@
 //import {creatingTable, insertUser, selectUser} from './Users.js';
 import express from 'express';
 import sqlite3 from 'sqlite3';
+import {creatingTable, insertUser, updateUser} from './Controler/Users.js';
+
 // const express = require('express'); 
 const app = express();
 
@@ -11,7 +13,7 @@ app.use(express.json());
 const DBPATH = 'database.db';
 
 
-//creatingTable();
+creatingTable();
 
 app.get('/user', (req, res) => {
 	res.statusCode = 200;
@@ -28,32 +30,32 @@ app.get('/user', (req, res) => {
 	});
 	db.close(); // Fecha o banco
 });
-// app.post('/user', function(req, res) {
-//     res.setHeader('Access-Control-Allow-Origin', '*');
-//     insertUser(req.body);
-//     res.json({
+//inserir novos dados pelo postman
+app.post('/user', function(req, res) {
+    insertUser(req.body);
+    res.json({
 
-//         "input": "ok"
+        "input": "ok"
     
-//     });
+    });
 
-// });
+});
+//update em dados, também pelo postman
+app.put('/user', function(req, res) {
+    if(req.body && !req.body.id){  
+        res.json({
 
-// app.put('/user', function(req, res) {
-//     if(req.body && !req.body.id){  
-//         res.json({
-
-//             "update": "not ok, id needed"
+            "update": "not ok, id needed"
         
-//         });
-//     } else {
-//         updateUser(req.body);
-//         res.json({
+        });
+    } else {
+        updateUser(req.body);
+        res.json({
 
-//             "update": "ok"
+            "update": "ok"
         
-//         });
-//     }
-// });
+        });
+    }
+});
 
 app.listen(3020, () => console.log("rodei3000"));
