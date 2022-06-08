@@ -44,6 +44,8 @@ function calc() {
 
     var menorTr = valoresTrabalhos[0];
     var menorPr = valoresProvas[0];
+    var maiorTr = valoresTrabalhos[0];
+    var maiorPr = valoresProvas[0];
 
     for (let k = 0; k < vlr ; k++) {
 
@@ -53,13 +55,23 @@ function calc() {
         if (menorTr > valoresTrabalhos[k]){menorTr = valoresTrabalhos[k];} 
         
         if (menorPr > valoresProvas[k]){menorPr = valoresProvas[k];}
+
+        if (maiorTr < valoresTrabalhos[k]){maiorTr = valoresTrabalhos[k];}
+
+        if (maiorPr < valoresProvas[k]){maiorPr = valoresProvas[k];}
+        
+        $("#total").append("Média Aluno "+ k +": ",medias[k], "<br>");
+
     }
 
         mediaGeral = parseFloat(mediaGeral/vlr);
 
-    for (let h = 0; h < vlr ; h++) {$("#total").append("Média Aluno "+ h +": ",medias[h], "<br>");}
+    //for (let h = 0; h < vlr ; h++) {}
 
-    $("#total").append("Média geral: ",mediaGeral, "<br> Média dos trabalhos: ",mediaTrabalhos, "<br>Média dos provas: ",mediaProvas, "<br>Menor trabalho: ",menorTr,"<br>Menor prova: ",menorPr);
+    $("#total").append("Média geral: ",mediaGeral, 
+                        "<br> Média dos trabalhos: ",mediaTrabalhos, "<br>Média dos provas: ",mediaProvas, 
+                        "<br>Menor trabalho: ",menorTr,"<br>Menor prova: ",menorPr, 
+                        "<br>Maior prova: ",maiorPr,"<br>Maior trabalho: ",maiorTr);
 
         console.log("soma dos trabalhos: ", sumTrabalhos);
         console.log("soma dos provas: ",sumProvas);
