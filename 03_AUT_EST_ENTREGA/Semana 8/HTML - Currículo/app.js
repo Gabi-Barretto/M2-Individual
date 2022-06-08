@@ -10,10 +10,10 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
 // const sqlite3 = require('sqlite3').verbose();
-const DBPATH = 'database.db';
+const DBPATH = './database.db';
 
 
-creatingTable();
+//creatingTable();
 
 app.get('/user', (req, res) => {
 	res.statusCode = 200;
