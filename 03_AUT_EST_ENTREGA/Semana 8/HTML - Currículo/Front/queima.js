@@ -23,7 +23,7 @@
 
 // }
 
-api = 'http://127.0.0.1:3050'
+api = 'http://127.0.0.1:3000'
 
 function criarLinha(){
     console.log("dsjdjk");
@@ -33,12 +33,13 @@ function criarLinha(){
 var Curr = {
 
     list() {
+        console.log("list");
         $.ajax({
             url: api + '/user',
             type: 'GET',
-            sucess: data => {
-
-                console.log("entrei");
+            success: data => {
+                var msg = JSON.parse(data);
+                console.log(msg);
                 var tx ='';
                 tx += `<table>
                             <tr>
@@ -47,7 +48,7 @@ var Curr = {
                                 <th>Semestre</th>
                             </tr>`;
 
-                data.map(element => {
+                msg.forEach(element => {
 
                     tx+=`<tr>
                             <td>` + element.nome + `</td>

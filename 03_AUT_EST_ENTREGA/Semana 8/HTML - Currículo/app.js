@@ -63,4 +63,4 @@ app.put('/user', function(req, res) {
     }
 });
 
-app.listen(3050, () => console.log("rodei3000"));
+app.listen(3000, () => console.log("rodei3000"));
