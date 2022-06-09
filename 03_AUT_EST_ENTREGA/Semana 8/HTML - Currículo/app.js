@@ -1,16 +1,19 @@
 //import {creatingTable, insertUser, selectUser} from './Users.js';
 import express from 'express';
 import sqlite3 from 'sqlite3';
+import bodyParser from 'body-parser';
+
 import {creatingTable, insertUser, updateUser} from './Controler/Users.js';
 
 // const express = require('express'); 
 const app = express();
 
-app.use(express.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 app.use(express.json());
 
 // const sqlite3 = require('sqlite3').verbose();
-const DBPATH = './database.db';
+const DBPATH = './bancoo.db';
 
 
 //creatingTable();
@@ -30,6 +33,7 @@ app.get('/user', (req, res) => {
 	});
 	db.close(); // Fecha o banco
 });
+
 //inserir novos dados pelo postman
 app.post('/user', function(req, res) {
     insertUser(req.body);
@@ -38,6 +42,7 @@ app.post('/user', function(req, res) {
         "input": "ok"
     
     });
+    
 
 });
 //update em dados, também pelo postman
@@ -58,4 +63,4 @@ app.put('/user', function(req, res) {
     }
 });
 
-app.listen(3020, () => console.log("rodei3000"));
+app.listen(3050, () => console.log("rodei3000"));

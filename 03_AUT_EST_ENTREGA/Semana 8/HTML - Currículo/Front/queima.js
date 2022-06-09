@@ -23,11 +23,12 @@
 
 // }
 
-api = 'http://120.0.0.1:3020'
+api = 'http://127.0.0.1:3050'
 
-$(document).ready(() => {
+function criarLinha(){
+    console.log("dsjdjk");
     Curr.list();
-});
+}
 
 var Curr = {
 
