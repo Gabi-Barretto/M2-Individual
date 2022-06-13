@@ -1,29 +1,14 @@
-function Calc(vlr) {
+function fibonacci(nmr){
 
-    let number = parseInt(vlr.value / 100);
+    let termo = nmr.value;
 
-    console.log(number);
-
-    if (1<=number && number<=9)
-    { 
-        number = number % 2;
-        console.log(number);
-
-        if(number != 0)
-        {
-            document.getElementById("result").innerHTML = "O primeiro digito é Ímpar";
-            console.log("ímpar");
+    if (termo > 0) { //aqui preenchemos um array com os valores da sequencia de fibonacci!
+        var serie = [];
+        serie[0] = 1;
+        serie[1] = 1;
+        for (var i = 2; i < termo; i++) {
+            serie[i] = serie[i - 2] + serie[i - 1];
         }
-        else 
-        {
-            document.getElementById("result").innerHTML = "O primeiro digito é Par";
-            console.log("par");
-        }
-    
     }
-    else
-    {
-        document.getElementById("result").innerHTML = "O número precisa ter 3 digitos!";
-    }
-
+    document.getElementById("resultado").innerHTML = 'A série de Fibonacci até o enésimo termo é: ' + serie;
 }

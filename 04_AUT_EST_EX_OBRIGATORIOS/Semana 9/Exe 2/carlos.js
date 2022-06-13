@@ -1,29 +1,20 @@
 function Calc(vlr) {
-
-    let number = parseInt(vlr.value / 100);
-
-    console.log(number);
-
-    if (1<=number && number<=9)
-    { 
-        number = number % 2;
-        console.log(number);
-
-        if(number != 0)
-        {
-            document.getElementById("result").innerHTML = "O primeiro digito é Ímpar";
-            console.log("ímpar");
-        }
-        else 
-        {
-            document.getElementById("result").innerHTML = "O primeiro digito é Par";
-            console.log("par");
-        }
     
+    let number = vlr.value;
+    let array = number.split("");
+    console.log(number);
+    console.log(array);
+    let soma = 0;
+    if (number > 0){
+    for (let i = 0; i < array.length; i++) {
+        if (Number(array[i]) >= 0 && Number(array[i]) <= 9) {
+            soma += Number(array[i]);
+        }
+    }
+    document.getElementById("result").innerHTML ="A soma dos dígitos é: " + soma;
     }
     else
     {
-        document.getElementById("result").innerHTML = "O número precisa ter 3 digitos!";
+        document.getElementById("result").innerHTML ="Digite um número positivo";
     }
-
 }
